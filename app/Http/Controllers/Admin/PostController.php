@@ -22,7 +22,7 @@ public function store(Request $request)
 {
 $data = $request->validate([
 'title' => 'required',
-'description' => 'required',
+'content' => 'required',
 'image' => 'nullable|image'
 ]);
 
@@ -44,7 +44,7 @@ public function update(Request $request, Post $post)
 {
 $data = $request->validate([
 'title' => 'required',
-'description' => 'required',
+'content' => 'required',
 'image' => 'nullable|image'
 ]);
 

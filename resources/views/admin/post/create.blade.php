@@ -13,7 +13,7 @@
 
         <div class="mb-3">
             <label>Description</label>
-            <textarea name="description" class="form-control"></textarea>
+            <textarea name="content" class="form-control"></textarea>
         </div>
 
         <div class="mb-3">
