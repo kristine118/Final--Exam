@@ -9,7 +9,7 @@
                 <li class="{{ $about->inverted ? 'timeline-inverted' : '' }}">
                     <div class="timeline-image">
                         @if($about->image)
-                            <img class="rounded-circle img-fluid" src="{{ asset($about->image) }}" alt="..." />
+                            <img class="rounded-circle img-fluid" src="{{ asset('storage/'.$about->image) }}" alt="..." />
                         @else
                             <h4>{{ $about->title }}</h4>
                         @endif

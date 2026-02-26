@@ -10,7 +10,11 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-sm-6 mb-4">
-                <img class="img-fluid" src="{{ asset($post->image) }}" alt="" />
+                @if($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}"
+                         class="img-fluid"
+                         alt="{{ $post->title }}">
+                @endif
 
                 <h1 class="mb-3">{{ $post->title }}</h1>
 

@@ -8,10 +8,10 @@
         <div class="row text-center">
             @foreach($services as $service)
                 <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas {{ $service->icon }} fa-stack-1x fa-inverse">fa-shopping-cart</i>
-            </span>
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="{{ $service->icon }} fa-stack-1x fa-inverse"></i>
+                    </span>
                     <h4 class="my-3">{{ $service->title }}</h4>
                     <p class="text-muted">{{ $service->description }}</p>
                 </div>

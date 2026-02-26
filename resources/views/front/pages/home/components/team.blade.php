@@ -8,7 +8,7 @@
             @foreach($teamMembers as $member)
                 <div class="col-lg-4">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="{{ asset($member->photo) }}" alt="{{ $member->name }}" />
+                        <img class="mx-auto rounded-circle" src="{{ asset('storage/'.$member->photo) }}">
                         <h4>{{ $member->name }}</h4>
                         <p class="text-muted">{{ $member->role }}</p>
                         @if($member->twitter)

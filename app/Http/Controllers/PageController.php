@@ -41,8 +41,8 @@ class PageController extends Controller
             'title' => 'Contact',
         ]);
     }
-    public function team() {
-        $teamMembers = TeamMember::all();
-        return view('front.pages.home.components.team', compact('teamMembers'));
-    }
+//    public function team() {
+//        $teamMembers = TeamMember::all();
+//        return view('front.pages.home.components.team', compact('teamMembers'));
+//    }
 }
