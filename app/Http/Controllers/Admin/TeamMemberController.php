@@ -5,6 +5,21 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+// ვალიდაციები გასატანია ცალე ფაილში Request კლასში.
+// მაგ. :   php artisan make:request Dashboard/TeamMemberStoreRequest 
+// როცა ცაკლე რექვესტში გაქვს შენი $data და $request->validate() ზუსტად იგივე საქმეს აკეთებს
+// კონტროლერში უნდა ვეცადოთ რომ ლოგიკა არ იყოს!
+// compact - ს არ ვიყენებდ view-ში ინფორმაციის გადასაცემათ
+// გამოყენე მასივი
+
+// სხვა კობნტროლერებშიც იგივე შენიშვნებია ყველგან აღარ დავწერ.
+
+// ვერ დავამატე წევრი, ვალიდაცაია არ მიშვებს.
+// ანუ ვალიდაციის მესიჯები არ ჩანს და ვერ ვხვდები რა ვალიდაცია ვერ გავიარე
+// გამოსაჩენია მესიჯები !!!
+// ასევე ვალიდაცაი უკან რრომ მაბრუნებს ჩაწერილი ტექსტები მიქრება
 
 
 class TeamMemberController extends Controller
@@ -59,6 +74,7 @@ class TeamMemberController extends Controller
         if ($request->hasFile('photo')) {
 
             // ძველი ფოტოს წაშლა
+            // ეს მომეწონა მხოლოდ შენ გაქვს გაკეთებული კარგია
             if ($team->photo) {
                 Storage::disk('public')->delete($team->photo);
             }
@@ -74,6 +90,9 @@ class TeamMemberController extends Controller
     public function destroy(TeamMember $team)
     {
         $team->delete();
-        return back();
+        // არასდორს გამოიყენო back() რადგან შეიძლება რედირექტი არასწორი იყოს და 404-ით დაგიბრუნოს,
+        // return back();
+
+        return redirect()->route('admin.team.index');
     }
 }

@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // ეს მიგრაცია დამატებით სვეტს დაამატებს posts ცხრილში, 
+        // რომელიც უკვე არსებობს !!!
+        // მოგრაცია ერორს აგდებს ამის გამო.
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('image')->nullable();
+            // $table->string('image')->nullable();
         });
     }
 

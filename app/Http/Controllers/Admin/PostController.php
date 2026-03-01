@@ -5,6 +5,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
+// ყველაფრი მიტყეპებული რატოა?? :დდდდ 
+// სად არის შინაგან სამინისტრო? :დდდდ
+// წერის სტილი და კულტურა უნდა დაიცვა 
+// კოდის გარჩევა რომ გაგიადვილდეს, უნდა დაიცვა სტანდარტი და წესები
+
 class PostController extends Controller
 {
 public function index()

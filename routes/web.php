@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminPostController;
+// გამოუნებელი კლასები უნდა მოშალო აქედან
+
+// use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -22,9 +24,11 @@ Route::name('front.')->group(function(){
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// ეს დაბლაც გაქვს დაწერილი
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -38,6 +42,13 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');
+
+
+    // Resource მეთოდს არ ვიყენებს ვწერთ ცალკ ცალკე!!!
+    // ნავიგასცისსტვის რთულია
+    // დიდ პროექტებში შეიძლება ვერ მოძებნო როუტი სწრაფად
+    // თან ეს როუტები Dashboard ფაილშია გასატანი!!!
+
 
     Route::resource('services', ServiceController::class);
     Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
